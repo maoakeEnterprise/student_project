@@ -1,33 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   isalnum.c                                          :+:      :+:    :+:   */
+/*   strlen.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mteriier </var/spool/mail/mteriier>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/14 20:37:32 by mteriier          #+#    #+#             */
-/*   Updated: 2025/10/14 20:48:21 by mteriier         ###   ########.fr       */
+/*   Created: 2025/10/17 21:11:03 by mteriier          #+#    #+#             */
+/*   Updated: 2025/10/17 21:23:06 by mteriier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isalnum(int c)
-{
-	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')
-		|| (c >= '0' && c <= '9'))
-	{
-		return (1);
-	}
-	return (0);
-}
-/*
-#include <stdio.h>
-#include <ctype.h>
+#include <stddef.h>
 
+size_t	ft_strlen(const char *s)
+{
+	size_t	i;
+
+	i = 0;
+	while (s[i])
+	{
+		i++;
+	}
+	return (i);
+}
+
+/*#include <stdio.h>
 int	main(int argc, char *argv[])
 {
 	if (argc > 1)
 	{
-		printf("program %d\n", isalnum(*argv[1]));
-		printf("mine %d\n", ft_isalnum(*argv[1]));
+		printf("%ld\n", ft_strlen(argv[1]));
 	}
+	return (1);
 }*/
