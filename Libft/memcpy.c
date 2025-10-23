@@ -1,37 +1,13 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   memset.c                                           :+:      :+:    :+:   */
+/*   memcpy.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mteriier </var/spool/mail/mteriier>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/17 21:23:54 by mteriier          #+#    #+#             */
-/*   Updated: 2025/10/21 21:35:07 by mteriier         ###   ########.fr       */
+/*   Created: 2025/10/21 21:36:29 by mteriier          #+#    #+#             */
+/*   Updated: 2025/10/21 21:36:31 by mteriier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
 
-void	*ft_memset(void *s, int c, size_t n)
-{
-	size_t	i;
-
-	i = 0;
-	while (i < n)
-	{
-		((unsigned char *)s)[i] = (unsigned char)c;
-		i++;
-	}
-	return (s);
-}
-
-/*#include <stdio.h>
-#include <string.h>
-int	main(void)
-{
-	char s[10] = "test";
-	printf("%s\n", s);
-	ft_memset(s, 97, 4);
-	printf("%s\n", s);
-
-}*/
