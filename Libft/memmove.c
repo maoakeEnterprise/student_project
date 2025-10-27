@@ -1,26 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   memcpy.c                                           :+:      :+:    :+:   */
+/*   memmove.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mteriier </var/spool/mail/mteriier>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/21 21:36:29 by mteriier          #+#    #+#             */
-/*   Updated: 2025/10/24 06:26:34 by mteriier         ###   ########.fr       */
+/*   Created: 2025/10/24 06:16:43 by mteriier          #+#    #+#             */
+/*   Updated: 2025/10/27 11:08:13 by mteriier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 
-void	*ft_memcpy(void *dest, const void *src, size_t n)
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	size_t	i;
+	unsigned char	*d_tmp;
+	unsigned char	*s_tmp;
+	size_t			i;
 
 	i = 0;
-	while (i < n)
+	d_tmp = (unsigned char *)dest;
+	s_tmp = (unsigned char *)src;
+	if (d_tmp > s_tmp)
 	{
-		((unsigned char *)dest)[i] = ((unsigned char *)src)[i];
-		i++;
+		while (i < n)
+		{
+			d_tmp[i] = s_tmp[i];
+			i++;
+		}
+	}
+	else if (d_tmp < s_tmp)
+	{
+		i = n;
+		while (i > 0)
+		{
+			d_tmp[i - 1] = s_tmp[i - 1];
+			i--;
+		}
 	}
 	return (dest);
 }
@@ -29,10 +45,10 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 #include <string.h>
 int	main(void)
 {
-	char	dest[10] = "e";
+	char	dest[4] = "ssd";
 	char	src[10] = "test";
 
 	printf("%s\n", dest);
-	ft_memcpy(dest, src, 4);
+	memmove(dest, src, 4);
 	printf("%s\n", dest);
 }*/
